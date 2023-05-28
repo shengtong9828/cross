@@ -1,0 +1,27 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "debug": "nodemon --inspect index.js",
+    "start": "pm2 start pm2.conf.json",
+    "reload": "pm2 reload all"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.0",
+    "koa": "^2.13.4",
+    "koa-body": "^4.2.0",
+    "koa-router": "^10.1.1",
+    "koa-static": "^5.0.0",
+    "koa2-cors": "^2.0.6",
+    "pm2": "^5.2.0",
+    "xml2js": "^0.4.23"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}

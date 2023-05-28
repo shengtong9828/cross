@@ -8,7 +8,8 @@ router.get("/", async (ctx, next) => {
 
 router.post("/", async (ctx, next) => {
   console.log(ctx.request.body);
-  ctx.body = ctx.request.body;
+  console.log(process.env.PARAMS);
+  ctx.body = process.env.PARAMS;
 });
 
 module.exports = router;

@@ -6,6 +6,9 @@ const onerror = require("koa-onerror");
 const bodyparser = require("koa-bodyparser");
 const logger = require("koa-logger");
 const cors = require("koa2-cors");
+const dotenv = require("dotenv");
+
+dotenv.config();
 
 const index = require("./routes/index");
 

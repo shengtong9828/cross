@@ -1,4 +1,6 @@
 const router = require("koa-router")();
+const { auth, checkReqInfo } = require("../middleware");
+const { cross } = require("../controller");
 
 router.get("/", async (ctx, next) => {
   await ctx.render("index", {
@@ -6,10 +8,10 @@ router.get("/", async (ctx, next) => {
   });
 });
 
-router.post("/", async (ctx, next) => {
-  console.log(ctx.request.body);
-  console.log(process.env.PARAMS);
-  ctx.body = process.env.PARAMS;
+router.post("/", auth, checkReqInfo, cross);
+
+router.post("/test", async (ctx, next) => {
+  ctx.body = 123;
 });
 
 module.exports = router;

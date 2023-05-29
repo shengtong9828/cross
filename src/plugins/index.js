@@ -25,21 +25,19 @@ function getAxiosParams(requestBody) {
     message: "",
   };
 
-  const typeParams = funDict[type]();
-  if (typeParams) {
-    if (typeParams.status === 0) {
-      Object.keys(typeParams).forEach((item) => {
-        if (item !== "status") {
-          if (item in result.data) {
-            result.data[item] = { ...result.data[item], ...typeParams[item] };
-          } else {
-            result.data[item] = typeParams[item];
-          }
+  const typeParams = funDict[type] ? funDict[type]() : {};
+  if (typeParams.status === 0) {
+    Object.keys(typeParams).forEach((item) => {
+      if (item !== "status") {
+        if (item in result.data) {
+          result.data[item] = { ...result.data[item], ...typeParams[item] };
+        } else {
+          result.data[item] = typeParams[item];
         }
-      });
-    } else {
-      result.data = { ...result.data, ...typeParams };
-    }
+      }
+    });
+  } else {
+    result.data = { ...result.data, ...typeParams };
   }
   return result;
 }

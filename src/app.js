@@ -18,7 +18,7 @@ onerror(app);
 //cors配置
 app.use(
   cors({
-    origin: "https://piecemeal.vercel.qingqian.fun", //前端origin
+    origin: "*", //前端origin
     credentials: true, //允许跨域带cookie
   })
 );
